@@ -1,0 +1,33 @@
+### GET ALL
+GET http://localhost:1234/tasks
+
+### GET BY ID 
+GET http://localhost:1234/tasks/0de95b03-ac1b-11ef-9c5b-e00af63df489
+
+### GET BY STATUS
+GET http://localhost:1234/tasks?status=completed
+
+### CREATE NEW TASK
+
+POST http://localhost:1234/tasks
+Content-Type: application/json 
+
+  {
+    "id": "a328ab48-5176-4cca-a3cc-bd38d0eeaeb2",
+    "name": "Task To Do",
+    "description": "Work on a Challenge on devChallenges.io, learn TypeScript",
+    "icon": "https://res.cloudinary.com/dkshw9hik/image/upload/fl_preserve_transparency/v1732310484/books_smw0qk.jpg?_s=public-apps",
+    "status": "Won´t do"
+  }
+
+### PATCH TASK
+
+PATCH http://localhost:1234/tasks/0de95f55-ac1b-11ef-9c5b-e00af63df489
+Content-Type: application/json 
+
+  {
+    "description": "refactor patch"
+  }
+
+### DELETE TASK
+DELETE http://localhost:1234/tasks/0de95b03-ac1b-11ef-9c5b-e00af63df489

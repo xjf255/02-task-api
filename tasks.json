@@ -1,0 +1,30 @@
+[
+  {
+    "id": "a328ab48-5176-4cca-a3cc-bd38d0eeaeb5",
+    "name": "Task in Progress",
+    "description": null,
+    "icon": "https://res.cloudinary.com/dkshw9hik/image/upload/v1732310484/clock_x62zvw.png",
+    "status": "In Progress"
+  },
+  {
+    "id": "a328ab48-5176-4cca-a3cc-bd38d0eeaeb4",
+    "name": "Task Completed",
+    "description": null,
+    "icon": "https://res.cloudinary.com/dkshw9hik/image/upload/fl_preserve_transparency/v1732310484/force_e781vk.jpg?_s=public-apps",
+    "status": "Completed"
+  },
+  {
+    "id": "a328ab48-5176-4cca-a3cc-bd38d0eeaeb3",
+    "name": "Task Won´t do",
+    "icon": "https://res.cloudinary.com/dkshw9hik/image/upload/v1732310484/coofee_z7gz2l.png",
+    "description": null,
+    "status": "Won´t do"
+  },
+  {
+    "id": "a328ab48-5176-4cca-a3cc-bd38d0eeaeb2",
+    "name": "Task To Do",
+    "description": "Work on a Challenge on devChallenges.io, learn TypeScript",
+    "icon": "https://res.cloudinary.com/dkshw9hik/image/upload/fl_preserve_transparency/v1732310484/books_smw0qk.jpg?_s=public-apps",
+    "status": "Won´t do"
+  }
+]
