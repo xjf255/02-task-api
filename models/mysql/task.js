@@ -1,4 +1,6 @@
 import mysql from "mysql2/promise"
+// import fs from "node:fs"
+
 
 const DEFAULT_CONFIG = {
   host: "localhost",
@@ -8,7 +10,23 @@ const DEFAULT_CONFIG = {
   database: "tasksdb"
 }
 
-const connection = await mysql.createConnection(DEFAULT_CONFIG)
+/* 
+ another method to connect with database
+ const caCert = fs.readFileSync(process.env.DB_CERTIFICATE, 'utf-8');
+ const DB_CONFIG = {
+//   host: process.env.DB_HOST,
+//   user: process.env.DB_USERNAME,
+//   port: process.env.DB_PORT,
+//   password: process.env.DB_PASSWORD,
+//   database: process.env.DB_DATABASE,
+//   ssl: {
+//     ca: caCert, 
+//   },
+ }*/
+
+const connectionString = process.env.DB_URL ?? DEFAULT_CONFIG
+
+const connection = await mysql.createConnection(connectionString)
 
 export class TaskModel {
   static async getAll({ status }) {

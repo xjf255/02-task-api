@@ -1,6 +1,7 @@
 import express, { json } from 'express'
 import { createTasksRouter } from './routes/tasks.js'
 import { corsMiddleware } from './middleware/cors.js'
+import 'dotenv/config'
 
 export const createApp = ({ TaskModel }) => {
   const app = express()
