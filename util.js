@@ -11,3 +11,10 @@ import { createRequire } from 'node:module'
 
 const require = createRequire(import.meta.url)
 export const readJSON = (path) => require(path)
+
+export const ACCEPTED_ORIGINS = [
+  'http://localhost:8080',
+  'http://localhost:1234',
+  'http://localhost:5173',
+  'http://localhost:5174'
+]
