@@ -7,6 +7,10 @@ GET http://localhost:1234/tasks/0de95b03-ac1b-11ef-9c5b-e00af63df489
 ### GET BY STATUS
 GET http://localhost:1234/tasks?status=completed
 
+### GET BY PAGES
+
+GET http://localhost:1234/tasks?pages=1
+
 ### CREATE NEW TASK
 
 POST http://localhost:1234/tasks

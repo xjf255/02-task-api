@@ -7,8 +7,8 @@ export class TasksController {
   }
 
   getAll = async (req, res) => {
-    const { status } = req.query
-    const tasks = await this.taskModel.getAll({ status })
+    const { status, pages, items } = req.query
+    const tasks = await this.taskModel.getAll({ status, pages, items })
     if (tasks) return res.json(tasks)
     res.status(404).json({ message: "Task not found" })
   }

@@ -3,9 +3,13 @@ import { readJSON } from "../../util.js"
 const INITIAL_TASKS = readJSON("./tasks.json")
 
 export class TaskModel {
-  static async getAll({ status }) {
+  static async getAll({ status, pages, items }) {
     if (status) {
       return INITIAL_TASKS.filter(task => task.status.toLowerCase() === status.toLowerCase())
+    }
+    if (pages) {
+      const NUM_ITEMS = items ?? 2
+      return INITIAL_TASKS.slice(NUM_ITEMS * (pages - 1), NUM_ITEMS * pages)
     }
     return INITIAL_TASKS
   }

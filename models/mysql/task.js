@@ -29,11 +29,10 @@ const connectionString = process.env.DB_URL ?? DEFAULT_CONFIG
 const connection = await mysql.createConnection(connectionString)
 
 export class TaskModel {
-  static async getAll({ status }) {
+  static async getAll({ status, pages, items, numPages }) {
     if (status) {
       const loweStatus = status.toLowerCase()
       const [statusus] = await connection.query('select * from statuses where lower(status) = ?;', [loweStatus])
-      console.log(statusus)
       if (statusus.length === 0) {
         return []
       }
@@ -41,6 +40,15 @@ export class TaskModel {
       const { id } = statusus[0]
       const [filteredTasks] = await connection.query('select BIN_TO_UUID(id) id, name, description, icon, status_id from tasks where status_id = ?;', [id])
       return filteredTasks
+    }
+
+    if (pages) {
+      const NUM_ITEMS = items ?? 5
+      const [paginationTasks] = await connection.query('SELECT BIN_TO_UUID(id) id, name, description, icon, status_id FROM tasks LIMIT ? OFFSET ?;', [NUM_ITEMS, ((pages - 1) * NUM_ITEMS)])
+      if(paginationTasks.length > 0){
+        return paginationTasks
+      }
+      return({message:"no tasks found"})
     }
 
     const [tasks] = await connection.query('select BIN_TO_UUID(id) id, name, description, icon, status_id from tasks;')
@@ -91,7 +99,7 @@ export class TaskModel {
       status_id: currentStatusId,
     } = currentTask[0];
 
-    let newStatusId = currentStatusId; 
+    let newStatusId = currentStatusId;
 
     if (status) {
       const [statusIdResult] = await connection.query(
