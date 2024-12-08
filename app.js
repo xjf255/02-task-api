@@ -10,7 +10,7 @@ export const createApp = ({ TaskModel }) => {
   app.use(corsMiddleware())
   app.use("/tasks", createTasksRouter({ TaskModel }))
 
-  const PORT = process.env.PORT ?? 1234
+  const PORT = process.env.PORT ?? 1235
 
   app.listen(PORT, () => {
     console.log(`http://localhost:${PORT}`)

@@ -1,19 +1,27 @@
 ### GET ALL
-GET http://localhost:1234/tasks
+GET http://localhost:1235/tasks
 
 ### GET BY ID 
-GET http://localhost:1234/tasks/0de95b03-ac1b-11ef-9c5b-e00af63df489
+GET http://localhost:1235/tasks/0de95b03-ac1b-11ef-9c5b-e00af63df489
 
 ### GET BY STATUS
-GET http://localhost:1234/tasks?status=completed
+GET http://localhost:1235/tasks?status=completed
 
 ### GET BY PAGES
 
-GET http://localhost:1234/tasks?pages=1
+GET http://localhost:1235/tasks?pages=1
+
+### GET BY PAGES
+
+GET http://localhost:1235/tasks?pages=1&items=3
+
+### GET BY PAGES
+
+GET http://localhost:1235/tasks?numPages=true
 
 ### CREATE NEW TASK
 
-POST http://localhost:1234/tasks
+POST http://localhost:1235/tasks
 Content-Type: application/json 
 
   {
@@ -26,7 +34,7 @@ Content-Type: application/json
 
 ### PATCH TASK
 
-PATCH http://localhost:1234/tasks/0de95f55-ac1b-11ef-9c5b-e00af63df489
+PATCH http://localhost:1235/tasks/0de95f55-ac1b-11ef-9c5b-e00af63df489
 Content-Type: application/json 
 
   {
@@ -34,4 +42,4 @@ Content-Type: application/json
   }
 
 ### DELETE TASK
-DELETE http://localhost:1234/tasks/0de95b03-ac1b-11ef-9c5b-e00af63df489
+DELETE http://localhost:1235/tasks/0de95b03-ac1b-11ef-9c5b-e00af63df489
