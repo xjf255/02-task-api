@@ -31,7 +31,7 @@ const connection = await mysql.createConnection(connectionString)
 export class TaskModel {
   static async hasMore({ page, NUM_ITEMS }) {
     if (page) {
-      const [tasks] = await connection.query('select BIN_TO_UUID(id) id, name, description, icon, status_id from tasks;')
+      const [tasks] = await connection.query('select BIN_TO_UUID(id) id from tasks;')
       const totalPages = Math.ceil(tasks.length / NUM_ITEMS);
 
       return totalPages;
@@ -54,7 +54,7 @@ export class TaskModel {
     if (page) {
       const offset = (parseInt(page, 10) - 1) * NUM_ITEMS
       const [paginationTasks] = await connection.query(
-        'SELECT BIN_TO_UUID(id) AS id, name, description, icon, status_id FROM tasks LIMIT ? OFFSET ?;',
+        'SELECT BIN_TO_UUID(t.id) AS id, t.name, t.description, t.icon, s.status AS status FROM tasks t JOIN statuses s ON t.status_id = s.id Limit ? offset ?;',
         [NUM_ITEMS, offset]
       );
 
@@ -65,12 +65,12 @@ export class TaskModel {
       return { message: "No tasks found" };
     }
 
-    const [tasks] = await connection.query('select BIN_TO_UUID(id) id, name, description, icon, status_id from tasks;')
+    const [tasks] = await connection.query('SELECT BIN_TO_UUID(t.id) AS id, t.name, t.description, t.icon, s.status AS status FROM tasks t JOIN statuses s ON t.status_id = s.id;')
     return tasks
   }
 
   static async getById({ id }) {
-    const [task] = await connection.query('select BIN_TO_UUID(id) id, name, description, icon, status_id from tasks where id = UUID_TO_BIN(?);', [id])
+    const [task] = await connection.query('SELECT BIN_TO_UUID(t.id) AS id, t.name, t.description, t.icon, s.status AS status FROM tasks t JOIN statuses s ON t.status_id = s.id where t.id = UUID_TO_BIN(?);', [id])
     if (task === 0) return []
     return task
   }
