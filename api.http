@@ -9,15 +9,11 @@ GET http://localhost:1235/tasks?status=completed
 
 ### GET BY PAGES
 
-GET http://localhost:1235/tasks?pages=1
+GET http://localhost:1235/tasks?page=1
 
 ### GET BY PAGES
 
-GET http://localhost:1235/tasks?pages=1&items=3
-
-### GET BY PAGES
-
-GET http://localhost:1235/tasks?numPages=true
+GET http://localhost:1235/tasks?page=1&items=3
 
 ### CREATE NEW TASK
 
