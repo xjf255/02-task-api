@@ -4,7 +4,7 @@ const taskSchema = z.object({
   name: z.string().max(120),
   description: z.string().max(250).nullable(),
   icon: z.string().url(),
-  status: z.enum(["Completed", "In progress", "Won´t do"])
+  status: z.enum(["Completed", "In Progress", "Won´t do"])
 })
 
 function validationTask(object) {

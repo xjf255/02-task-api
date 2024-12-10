@@ -20,13 +20,20 @@ GET http://localhost:1235/tasks?page=1&items=3
 POST http://localhost:1235/tasks
 Content-Type: application/json 
 
+  # {
+  #   "id": "a328ab48-5176-4cca-a3cc-bd38d0eeaeb2",
+  #   "name": "Task to example",
+  #   "description": "Work on a Challenge on devChallenges.io, learn TypeScript",
+  #   "icon": "https://res.cloudinary.com/dkshw9hik/image/upload/fl_preserve_transparency/v1732310484/books_smw0qk.jpg?_s=public-apps",
+  #   "status": "Won´t do"
+  # }
+
   {
-    "id": "a328ab48-5176-4cca-a3cc-bd38d0eeaeb2",
-    "name": "Task To Do",
-    "description": "Work on a Challenge on devChallenges.io, learn TypeScript",
-    "icon": "https://res.cloudinary.com/dkshw9hik/image/upload/fl_preserve_transparency/v1732310484/books_smw0qk.jpg?_s=public-apps",
-    "status": "Won´t do"
-  }
+  "description": null,
+  "icon": "https://res.cloudinary.com/dkshw9hik/image/upload/v1732310484/clock_x62zvw.png",
+  "name": "Make paja 300",
+  "status": "In Progress"
+}
 
 ### PATCH TASK
 
