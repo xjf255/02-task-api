@@ -14,7 +14,7 @@ export const readJSON = (path) => require(path)
 
 export const ACCEPTED_ORIGINS = [
   'http://localhost:8080',
-  'https://taskslist-to-do.netlify.app/',
+  'https://taskslist-to-do.netlify.app',
   'http://localhost:1234',
   'http://localhost:5173',
   'http://localhost:5174'
